@@ -1,8 +1,10 @@
-%% data extraction
+function tb_list_files_fn(file_name)
 
-tinbergen_output_directory = '/Users/vertigogeneral/test_host/tinbergen_output';
+% tinbergen_output_directory = '/Volumes/My Passport/NICK/Chang Lab 2016/matt/angie_mackenzye/tinbergenoutput';
+tinbergen_output_directory = '/Volumes/My Passport/NICK/Chang Lab 2016/matt/angie_mackenzye/tinbergen_output_new';
+save_directory = '/Volumes/My Passport/NICK/Chang Lab 2016/matt/angie_mackenzye';
+
 cd(tinbergen_output_directory);
-
 
 % tinbergen_files = rid_super_sub_folder_references(dir(tinbergen_output_directory));
 tinbergen_files = dir('*.tbobs');
@@ -37,5 +39,7 @@ for i = 1:length(tinbergen_filenames)
     
 end
 
-%% optionally save data as a .mat file
-date = '0709';
+cd(save_directory);
+full_file_name = sprintf('%s_processed_data.mat',file_name);
+save(full_file_name);
+
